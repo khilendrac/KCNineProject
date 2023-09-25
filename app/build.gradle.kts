@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -30,17 +32,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "18"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.4.6"
     }
     packaging {
         resources {
@@ -51,6 +53,7 @@ android {
 
 dependencies {
 
+    //Default
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.2")
@@ -66,4 +69,37 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
+    //Room Database
+    implementation("androidx.room:room-runtime:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
+    annotationProcessor("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
+
+    //Hilt and Dagger
+    implementation("com.google.dagger:hilt-android:2.44.2")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44.2")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.44")
+
+    //Retrofit
+    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+
+    //CustomTab
+    implementation("androidx.browser:browser:1.5.0")
+
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+
 }
