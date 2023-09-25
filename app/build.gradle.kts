@@ -70,9 +70,18 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
     //Room Database
     implementation("androidx.room:room-runtime:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
     annotationProcessor("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
 
     //Hilt and Dagger
     implementation("com.google.dagger:hilt-android:2.44.2")
@@ -84,6 +93,13 @@ dependencies {
     implementation("com.google.code.gson:gson:2.9.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+
+    //CustomTab
+    implementation("androidx.browser:browser:1.5.0")
+
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
 
 }
